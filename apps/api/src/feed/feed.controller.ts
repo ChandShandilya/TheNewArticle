@@ -20,8 +20,8 @@ export class FeedController {
   }
 
   @Get('feed/top')
-  getTop(): Promise<Story[]> {
-    return this.feed.getTop();
+  getTop(@Query('region') region?: string): Promise<Story[]> {
+    return this.feed.getTop(region);
   }
 
   @Get('story/:id')
