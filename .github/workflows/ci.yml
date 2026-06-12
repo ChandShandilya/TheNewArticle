@@ -32,6 +32,9 @@ jobs:
       - name: Build shared types
         run: npm run build --workspace=@tna/types
 
+      - name: Generate Prisma client
+        run: npm run db:generate --workspace=@tna/api
+
       - name: Prettier check
         run: npm run format:check
 
@@ -55,6 +58,9 @@ jobs:
 
       - name: Build shared types
         run: npm run build --workspace=@tna/types
+
+      - name: Generate Prisma client
+        run: npm run db:generate --workspace=@tna/api
 
       - name: Run tests
         run: npm test --workspaces --if-present -- --passWithNoTests
