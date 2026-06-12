@@ -33,13 +33,10 @@ jobs:
         run: npm run build --workspace=@tna/types
 
       - name: Prettier check
-        run: npx prettier --check "**/*.{ts,tsx,js,json,md,yml}" --ignore-path .gitignore
+        run: npm run format:check
 
-      - name: Type-check API
-        run: npx tsc --noEmit --project apps/api/tsconfig.json
-
-      - name: Type-check Web
-        run: npx tsc --noEmit --project apps/web/tsconfig.json
+      - name: Type-check all workspaces
+        run: npm run typecheck
 
   # ── Unit tests ────────────────────────────────────────────
   test:
