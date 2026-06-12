@@ -1,0 +1,54 @@
+# ============================================================
+# TheNewArticle — root .gitignore
+# ============================================================
+
+# ── Node ────────────────────────────────────────────────────
+node_modules/
+.pnp
+.pnp.js
+.npm/
+
+# ── Build outputs ───────────────────────────────────────────
+dist/
+build/
+out/
+.next/
+*.tsbuildinfo
+
+# ── Environment & secrets ───────────────────────────────────
+.env
+.env.local
+.env.*.local
+# Keep .env.example committed — it documents required variables
+
+# ── Prisma ──────────────────────────────────────────────────
+apps/api/prisma/*.db
+
+# ── Test coverage ───────────────────────────────────────────
+coverage/
+.nyc_output/
+lcov.info
+
+# ── Editors & IDEs ──────────────────────────────────────────
+.vscode/settings.json
+.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.sw?
+
+# ── OS ──────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs ────────────────────────────────────────────────────
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+
+# ── Misc ────────────────────────────────────────────────────
+.cache/
+.turbo/
+*.local

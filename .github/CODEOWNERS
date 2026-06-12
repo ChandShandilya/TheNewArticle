@@ -1,0 +1,21 @@
+# CODEOWNERS — https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# Each line is a pattern followed by one or more owners.
+# The LAST matching pattern takes precedence.
+# Replace @ChandShandilya with your actual GitHub handle.
+
+# ── Global fallback ───────────────────────────────────────
+*                           @ChandShandilya
+
+# ── API (NestJS / Prisma) ─────────────────────────────────
+apps/api/**                 @ChandShandilya
+
+# ── Web (Next.js) ─────────────────────────────────────────
+apps/web/**                 @ChandShandilya
+
+# ── Shared types ─────────────────────────────────────────
+packages/types/**           @ChandShandilya
+
+# ── Infrastructure / CI ───────────────────────────────────
+.github/**                  @ChandShandilya
+docker-compose.yml          @ChandShandilya

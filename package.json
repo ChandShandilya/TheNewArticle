@@ -1,0 +1,24 @@
+{
+  "name": "thenewarticle",
+  "version": "0.1.0",
+  "private": true,
+  "description": "TheNewArticle — India-first, low-bandwidth news aggregator (Phase 1 MVP)",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "postinstall": "npm run build --workspace=@tna/types",
+    "dev": "npm run dev --workspace=@tna/api & npm run dev --workspace=@tna/web",
+    "dev:api": "npm run dev --workspace=@tna/api",
+    "dev:web": "npm run dev --workspace=@tna/web",
+    "build": "npm run build --workspaces --if-present",
+    "db:up": "docker compose up -d postgres redis",
+    "db:down": "docker compose down",
+    "db:migrate": "npm run db:migrate --workspace=@tna/api",
+    "ingest": "npm run ingest --workspace=@tna/api"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

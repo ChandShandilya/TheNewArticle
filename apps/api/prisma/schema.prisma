@@ -1,0 +1,63 @@
+// TheNewArticle — Prisma schema (PostgreSQL)
+// Mirrors @tna/types. See COPILOT_INSTRUCTIONS.md §3.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Source {
+  id          String    @id @default(cuid())
+  name        String    @unique
+  homepageUrl String
+  faviconUrl  String?
+  country     String // ISO 3166-1 alpha-2, lowercase
+  language    String // ISO 639-1, lowercase
+  kind        String // national | regional | international | wire | government
+  articles    Article[]
+  createdAt   DateTime  @default(now())
+}
+
+model Story {
+  id           String    @id @default(cuid())
+  // Deterministic fingerprint used for idempotent clustering.
+  clusterKey   String    @unique
+  title        String
+  canonicalUrl String
+  region       String // india | world
+  categories   String[]
+  publishedAt  DateTime
+  articles     Article[]
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  @@index([region, publishedAt])
+  @@index([publishedAt])
+}
+
+model Article {
+  id          String   @id @default(cuid())
+  storyId     String
+  story       Story    @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  sourceId    String
+  source      Source   @relation(fields: [sourceId], references: [id])
+  title       String
+  summary     String?
+  fullText    String?
+  url         String   @unique
+  language    String
+  country     String
+  categories  String[]
+  rawTags     String[]
+  aiSummary   String?
+  summaryKind String   @default("source") // source | ai
+  publishedAt DateTime
+  createdAt   DateTime @default(now())
+
+  @@index([storyId])
+  @@index([publishedAt])
+}

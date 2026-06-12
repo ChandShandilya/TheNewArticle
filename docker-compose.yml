@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: tna-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: tna
+      POSTGRES_PASSWORD: tna
+      POSTGRES_DB: thenewarticle
+    ports:
+      - "5432:5432"
+    volumes:
+      - tna_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U tna -d thenewarticle"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  redis:
+    image: redis:7-alpine
+    container_name: tna-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - tna_redisdata:/data
+
+volumes:
+  tna_pgdata:
+  tna_redisdata:

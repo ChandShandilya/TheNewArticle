@@ -1,0 +1,17 @@
+{
+  "name": "TheNewArticle",
+  "short_name": "TNA",
+  "description": "India-first, low-bandwidth, source-first news.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16181d",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
