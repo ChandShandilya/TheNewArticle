@@ -45,13 +45,13 @@ The API listens on `http://localhost:4000` and the web app on `http://localhost:
 
 ## Branch strategy
 
-| Branch | Purpose |
-|--------|---------|
-| `main` | Production-ready code. Direct pushes are blocked. |
-| `develop` | Integration branch. PRs merge here first. |
-| `feat/<ticket>-<slug>` | New features |
-| `fix/<ticket>-<slug>` | Bug fixes |
-| `chore/<slug>` | Maintenance (deps, tooling, docs) |
+| Branch                 | Purpose                                           |
+| ---------------------- | ------------------------------------------------- |
+| `main`                 | Production-ready code. Direct pushes are blocked. |
+| `develop`              | Integration branch. PRs merge here first.         |
+| `feat/<ticket>-<slug>` | New features                                      |
+| `fix/<ticket>-<slug>`  | Bug fixes                                         |
+| `chore/<slug>`         | Maintenance (deps, tooling, docs)                 |
 
 ---
 

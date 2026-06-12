@@ -14,9 +14,7 @@ const ADAPTERS: Record<string, () => NewsSourceAdapter> = {
 export function getAdapter(id: string): NewsSourceAdapter {
   const factory = ADAPTERS[id];
   if (!factory) {
-    throw new Error(
-      `Unknown INGEST_SOURCE "${id}". Known: ${Object.keys(ADAPTERS).join(', ')}`,
-    );
+    throw new Error(`Unknown INGEST_SOURCE "${id}". Known: ${Object.keys(ADAPTERS).join(', ')}`);
   }
   return factory();
 }
@@ -30,10 +28,7 @@ export interface IngestSummary {
 }
 
 /** Idempotent: re-running upserts by stable keys and never duplicates. */
-async function persistCluster(
-  prisma: PrismaClient,
-  cluster: StoryCluster,
-): Promise<number> {
+async function persistCluster(prisma: PrismaClient, cluster: StoryCluster): Promise<number> {
   const story = await prisma.story.upsert({
     where: { clusterKey: cluster.clusterKey },
     create: {
@@ -93,10 +88,7 @@ async function persistCluster(
   return articles;
 }
 
-export async function runIngestion(
-  prisma: PrismaClient,
-  sourceId: string,
-): Promise<IngestSummary> {
+export async function runIngestion(prisma: PrismaClient, sourceId: string): Promise<IngestSummary> {
   const adapter = getAdapter(sourceId);
   const raw = await adapter.fetch();
   const normalized = raw.map(normalize);

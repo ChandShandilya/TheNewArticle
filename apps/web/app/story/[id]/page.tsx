@@ -32,11 +32,7 @@ function SourceRow({ article }: { article: Article }) {
   );
 }
 
-export default async function StoryPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function StoryPage({ params }: { params: { id: string } }) {
   const story = await getStory(params.id);
   if (!story) notFound();
 
@@ -45,9 +41,7 @@ export default async function StoryPage({
       <p className="meta" style={{ marginBottom: 6 }}>
         <Link href="/">← Back</Link>
       </p>
-      <h1 style={{ fontSize: 24, lineHeight: 1.25, margin: '0 0 8px' }}>
-        {story.title}
-      </h1>
+      <h1 style={{ fontSize: 24, lineHeight: 1.25, margin: '0 0 8px' }}>{story.title}</h1>
       <div className="meta">
         <span>{timeAgo(story.publishedAt)}</span>
         <span aria-hidden>·</span>
@@ -61,9 +55,7 @@ export default async function StoryPage({
         ))}
       </div>
 
-      <h2 style={{ fontSize: 14, marginTop: 20, color: 'var(--muted)' }}>
-        All sources
-      </h2>
+      <h2 style={{ fontSize: 14, marginTop: 20, color: 'var(--muted)' }}>All sources</h2>
       <ul className="sources">
         {story.articles.map((a) => (
           <SourceRow key={a.id} article={a} />

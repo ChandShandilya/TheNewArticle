@@ -32,8 +32,11 @@ export function getFeed(params: {
   return get<FeedResponse>(`/feed?${q.toString()}`, EMPTY_FEED);
 }
 
-export function getTop(): Promise<Story[]> {
-  return get<Story[]>('/feed/top', []);
+export function getTop(region?: string): Promise<Story[]> {
+  const q = new URLSearchParams();
+  if (region) q.set('region', region);
+  const qs = q.toString();
+  return get<Story[]>(`/feed/top${qs ? `?${qs}` : ''}`, []);
 }
 
 export function getStory(id: string): Promise<Story | null> {

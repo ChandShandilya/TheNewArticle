@@ -11,6 +11,10 @@ export const metadata = {
   description:
     'India-first, low-bandwidth news aggregator. Multiple sources per story, original links always one tap away.',
   manifest: '/manifest.webmanifest',
+  icons: {
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    apple: [{ url: '/icon.svg' }],
+  },
 };
 
 export const viewport = {
@@ -19,11 +23,7 @@ export const viewport = {
   themeColor: '#16181d',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const textOnly = cookies().get('textOnly')?.value === '1';
   return (
     <html lang="en">

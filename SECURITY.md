@@ -2,9 +2,9 @@
 
 ## Supported versions
 
-| Version | Supported |
-| ------- | --------- |
-| 0.x (Phase 1 MVP) | ✅ |
+| Version           | Supported |
+| ----------------- | --------- |
+| 0.x (Phase 1 MVP) | ✅        |
 
 ## Reporting a vulnerability
 
@@ -13,6 +13,7 @@
 Send a report to the maintainer via GitHub's private [Security Advisories](../../security/advisories/new) feature.
 
 Include:
+
 - A description of the vulnerability and its potential impact.
 - Steps to reproduce or a proof-of-concept.
 - Any suggested mitigations if you have them.

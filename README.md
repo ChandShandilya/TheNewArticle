@@ -11,12 +11,14 @@ aggregation only, mock India data, no auth.
 > data model, and the low-bandwidth constraints that drive every decision.
 
 ## Stack
+
 - **apps/web** — Next.js (App Router), SSR, text-first low-bandwidth UI, PWA
 - **apps/api** — NestJS, Prisma + PostgreSQL, ingestion pipeline
 - **packages/types** — shared `@tna/types` domain model
 - **Postgres + Redis** via `docker-compose.yml`
 
 ## Quick start
+
 ```bash
 cp .env.example .env
 npm install
@@ -45,8 +47,8 @@ ln -sf ../../.env apps/api/.env   # let the Prisma CLI find DATABASE_URL
 privilege is required by `prisma migrate dev` (shadow database). Then run
 `npm run db:migrate` and `npm run ingest` as above.
 
-
 ## What works in Phase 1
+
 - Mock India + World stories ingested, normalized, and **clustered into stories**
   (multiple sources per story).
 - API: `/feed`, `/feed/top`, `/story/:id`, `/search`, `/health`.
@@ -54,5 +56,6 @@ privilege is required by `prisma migrate dev` (shadow database). Then run
   list, search, **Text-only mode**, PWA manifest + service worker.
 
 ## Next phases
+
 See COPILOT_INSTRUCTIONS.md §1 and the `about/` notes: real news APIs, user
 accounts + personalization, AI summaries/clustering, editorial CMS.

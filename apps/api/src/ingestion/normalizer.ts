@@ -32,8 +32,26 @@ const CATEGORY_ALIASES: Record<string, Category> = {
 };
 
 const STOPWORDS = new Set([
-  'the', 'a', 'an', 'of', 'to', 'in', 'on', 'for', 'and', 'with', 'from',
-  'at', 'by', 'as', 'is', 'are', 'its', 'new', 'next', 'generation',
+  'the',
+  'a',
+  'an',
+  'of',
+  'to',
+  'in',
+  'on',
+  'for',
+  'and',
+  'with',
+  'from',
+  'at',
+  'by',
+  'as',
+  'is',
+  'are',
+  'its',
+  'new',
+  'next',
+  'generation',
 ]);
 
 export function mapCategories(raw: string[]): Category[] {
