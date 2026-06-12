@@ -34,9 +34,7 @@ interface WorkingCluster {
 }
 
 function withinWindow(a: NormalizedArticle, b: NormalizedArticle): boolean {
-  const diff = Math.abs(
-    +new Date(a.raw.publishedAt) - +new Date(b.raw.publishedAt),
-  );
+  const diff = Math.abs(+new Date(a.raw.publishedAt) - +new Date(b.raw.publishedAt));
   return diff <= TIME_WINDOW_HOURS * 3_600_000;
 }
 
@@ -56,9 +54,7 @@ export function deduplicate(items: NormalizedArticle[]): StoryCluster[] {
   for (const item of ordered) {
     const tokens = new Set(item.tokens);
     const match = working.find(
-      (c) =>
-        withinWindow(c.items[0], item) &&
-        jaccard(c.tokens, tokens) >= SIMILARITY_THRESHOLD,
+      (c) => withinWindow(c.items[0], item) && jaccard(c.tokens, tokens) >= SIMILARITY_THRESHOLD,
     );
     if (match) {
       match.items.push(item);
@@ -73,9 +69,7 @@ export function deduplicate(items: NormalizedArticle[]): StoryCluster[] {
     const newest = c.items.reduce((a, b) =>
       +new Date(b.raw.publishedAt) > +new Date(a.raw.publishedAt) ? b : a,
     );
-    const categories = [
-      ...new Set(c.items.flatMap((g) => g.categories)),
-    ] as Category[];
+    const categories = [...new Set(c.items.flatMap((g) => g.categories))] as Category[];
 
     return {
       clusterKey: clusterKeyOf(seed.raw.title),
@@ -88,7 +82,5 @@ export function deduplicate(items: NormalizedArticle[]): StoryCluster[] {
     };
   });
 
-  return clusters.sort(
-    (a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt),
-  );
+  return clusters.sort((a, b) => +new Date(b.publishedAt) - +new Date(a.publishedAt));
 }

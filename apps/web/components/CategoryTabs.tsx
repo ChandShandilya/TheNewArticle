@@ -19,21 +19,11 @@ function href(region: Region, category: Category): string {
   return `/?${q.toString()}`;
 }
 
-export function CategoryTabs({
-  region,
-  active,
-}: {
-  region: Region;
-  active: Category;
-}) {
+export function CategoryTabs({ region, active }: { region: Region; active: Category }) {
   return (
     <nav className="tabs" aria-label="Categories">
       {CATEGORIES.map((cat) => (
-        <Link
-          key={cat}
-          href={href(region, cat)}
-          className={cat === active ? 'active' : undefined}
-        >
+        <Link key={cat} href={href(region, cat)} className={cat === active ? 'active' : undefined}>
           {LABELS[cat]}
         </Link>
       ))}
@@ -41,13 +31,7 @@ export function CategoryTabs({
   );
 }
 
-export function RegionTabs({
-  region,
-  category,
-}: {
-  region: Region;
-  category: Category;
-}) {
+export function RegionTabs({ region, category }: { region: Region; category: Category }) {
   const make = (r: Region): string => href(r, category);
   return (
     <div className="regiontabs" aria-label="Region">

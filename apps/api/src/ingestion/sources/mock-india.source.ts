@@ -141,8 +141,7 @@ const SEEDS: Seed[] = [
   {
     outlet: 'dh',
     title: 'Bengaluru metro adds two new lines to ease tech-corridor traffic',
-    summary:
-      'The expansion connects the airport and the eastern IT hubs, cutting commute times.',
+    summary: 'The expansion connects the airport and the eastern IT hubs, cutting commute times.',
     categories: ['business'],
     hours: 6,
     slug: 'bengaluru-metro-expansion',
@@ -150,8 +149,7 @@ const SEEDS: Seed[] = [
   {
     outlet: 'toi',
     title: 'India clinch series win in final-over thriller',
-    summary:
-      'A composed finish saw the hosts chase down the target with one ball to spare.',
+    summary: 'A composed finish saw the hosts chase down the target with one ball to spare.',
     categories: ['sports'],
     hours: 1,
     slug: 'india-series-win',
@@ -159,8 +157,7 @@ const SEEDS: Seed[] = [
   {
     outlet: 'hindu',
     title: 'Monsoon forecast revised upward for the southern peninsula',
-    summary:
-      'The weather department now expects above-normal rainfall across several districts.',
+    summary: 'The weather department now expects above-normal rainfall across several districts.',
     categories: ['science'],
     hours: 8,
     slug: 'monsoon-forecast',
@@ -168,8 +165,7 @@ const SEEDS: Seed[] = [
   {
     outlet: 'ie',
     title: 'Homegrown startup unveils low-cost EV battery for two-wheelers',
-    summary:
-      'The company claims a 30 percent cost reduction using a sodium-ion chemistry.',
+    summary: 'The company claims a 30 percent cost reduction using a sodium-ion chemistry.',
     categories: ['tech', 'business'],
     hours: 7,
     slug: 'ev-battery-startup',
@@ -179,8 +175,7 @@ const SEEDS: Seed[] = [
   {
     outlet: 'reuters',
     title: 'Global chipmakers report record demand for AI accelerators',
-    summary:
-      'Quarterly results show data-centre demand outpacing supply for advanced chips.',
+    summary: 'Quarterly results show data-centre demand outpacing supply for advanced chips.',
     categories: ['ai', 'business'],
     hours: 3,
     slug: 'global-ai-chip-demand',
@@ -188,8 +183,7 @@ const SEEDS: Seed[] = [
   {
     outlet: 'bbc',
     title: 'Chipmakers report record demand for AI accelerators worldwide',
-    summary:
-      'Analysts say the AI build-out is reshaping the semiconductor supply chain.',
+    summary: 'Analysts say the AI build-out is reshaping the semiconductor supply chain.',
     categories: ['ai', 'tech'],
     hours: 4,
     slug: 'global-ai-chip-demand',
@@ -197,8 +191,7 @@ const SEEDS: Seed[] = [
   {
     outlet: 'bbc',
     title: 'Major film festival announces lineup with strong Asian presence',
-    summary:
-      'Several debut features from India and Southeast Asia made the official selection.',
+    summary: 'Several debut features from India and Southeast Asia made the official selection.',
     categories: ['entertainment', 'art-culture'],
     hours: 9,
     slug: 'film-festival-lineup',
